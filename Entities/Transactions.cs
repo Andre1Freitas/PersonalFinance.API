@@ -1,5 +1,4 @@
 ﻿using PersonalFinance.API.Enums;
-using System.ComponentModel;
 
 namespace PersonalFinance.API.Entities
 {
@@ -13,10 +12,10 @@ namespace PersonalFinance.API.Entities
         public string DescriptionTransaction { get; set; }
         public DateTime Date { get; set; } = DateTime.UtcNow;
 
-        public Transactions(Guid userId, Guid transactionId, decimal value, TransactionType transactionType, Guid categoryId, string descriptionTransaction = "", DateTime date = default)
+        public Transactions(Guid userId, decimal value, TransactionType transactionType, Guid categoryId, string descriptionTransaction = "", DateTime date = default)
         {
             UserId = userId;
-            TransactionId = transactionId;
+            TransactionId = Guid.NewGuid();
             Value = value;
             TransactionType = transactionType;
             CategoryId = categoryId;

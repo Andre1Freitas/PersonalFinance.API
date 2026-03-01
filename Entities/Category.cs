@@ -1,4 +1,6 @@
-﻿namespace PersonalFinance.API.Entities
+﻿using System.Security.Cryptography;
+
+namespace PersonalFinance.API.Entities
 {
     public class Category
     {
@@ -6,10 +8,10 @@
         public Guid CategoryId { get; set; }
         public Guid UserId { get; set; }
 
-        public Category(string name, Guid categoryId, Guid userId)
+        public Category(string name, Guid userId)
         {
             Name = name;
-            CategoryId = categoryId;
+            CategoryId = Guid.NewGuid();
             UserId = userId;
         }
     }
