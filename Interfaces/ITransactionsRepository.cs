@@ -7,8 +7,8 @@ namespace PersonalFinance.API.Interfaces
         void Add(Transactions transactions);
         void Remove(Guid transactionId);
         void Update(Guid transactionId, Transactions updatedTransaction);
-        Transactions GetById(Guid transactionId);
+        Transactions? GetById(Guid transactionId);
         List<Transactions> GetAllByUser(Guid userId);
-        List<Transactions> GetTransactionsPerPeriod(Guid userId, DateTime begin, DateTime end);
+        List<Transactions> GetPerPeriod(Guid userId, DateTime begin, DateTime end);
     }
 }
