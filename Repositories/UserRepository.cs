@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonalFinance.API.Data;
 using PersonalFinance.API.Entities;
+using PersonalFinance.API.Interfaces;
 
 namespace PersonalFinance.API.Repositories
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
         public UserRepository(AppDbContext context)
