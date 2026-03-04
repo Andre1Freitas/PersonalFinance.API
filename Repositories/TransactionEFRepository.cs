@@ -19,10 +19,8 @@ namespace PersonalFinance.API.Repositories
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
         }
-        public void Remove(Guid transactionId)
-        {
-            _context.Transactions.Where(p => p.TransactionId == transactionId).ExecuteDelete();
-        }
+        public void Remove(Guid transactionId) => _context.Transactions.Where(p => p.TransactionId == transactionId).ExecuteDelete();
+
         public void Update(Guid transactionId, Transactions updatedTransaction)
         {
             _context.Transactions.
