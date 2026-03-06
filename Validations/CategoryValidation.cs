@@ -9,7 +9,7 @@ namespace PersonalFinance.API.Validations
             return ValidationHelper.ValidateName(name);
         }
 
-        public Result ValidateGuid(Guid id)
+        public Result ValidateUserId(Guid id)
         {
             return ValidationHelper.ValidateGuid(id);
         }
