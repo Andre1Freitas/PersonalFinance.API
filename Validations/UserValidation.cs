@@ -5,7 +5,6 @@ namespace PersonalFinance.API.Validations
 {
     public class UserValidation
     {
-
         public Result ValidateName(string name)
         {
             return ValidationHelper.ValidateName(name);
