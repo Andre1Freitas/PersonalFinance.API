@@ -31,5 +31,10 @@ namespace PersonalFinance.API.Validations
         {
             return ValidationHelper.ValidateGuid(id);
         }
+
+        public Result ValidateTransactionId(Guid id)
+        {
+            return ValidationHelper.ValidateGuid(id);
+        }
     }
 }
