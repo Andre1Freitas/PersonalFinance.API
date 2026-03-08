@@ -7,7 +7,7 @@ namespace PersonalFinance.API.Interfaces
         void Add(Category category);
         void Remove(Guid categoryId);
         void Update(Guid categoryId, Category updatedCategory);
-        Category GetById(Guid categoryId);
+        Category? GetById(Guid? categoryId);
         List<Category> GetAll();
     }
 }

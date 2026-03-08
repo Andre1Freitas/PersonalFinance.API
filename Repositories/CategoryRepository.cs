@@ -30,7 +30,7 @@ namespace PersonalFinance.API.Repositories
                 .SetProperty(f => f.Name, updatedCategory.Name));
         }
 
-        public Category? GetById(Guid categoryId) => _context.Categories.Find(categoryId);
+        public Category? GetById(Guid? categoryId) => _context.Categories.Find(categoryId);
 
         public List<Category> GetAll() => _context.Categories.ToList();
     }
