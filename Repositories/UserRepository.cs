@@ -31,7 +31,7 @@ namespace PersonalFinance.API.Repositories
                 .SetProperty(f => f.Email, updatedUser.Email));
         }
 
-        public User? GetById(Guid userId) => _context.Users.Find(userId);
+        public User GetById(Guid userId) => _context.Users.Find(userId)!;
 
         public List<User> GetAll() => _context.Users.ToList();
      }
