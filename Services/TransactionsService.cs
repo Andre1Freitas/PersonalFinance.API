@@ -8,27 +8,27 @@ namespace PersonalFinance.API.Services
     public class TransactionsService
     {
         private readonly ITransactionsRepository _transactionsRepository;
-        private readonly TransactionValidation transactionValidation;
+        private readonly TransactionValidation _transactionValidation;
 
         public TransactionsService(ITransactionsRepository transactionsRepository, TransactionValidation transactionValidation)
         {
             _transactionsRepository = transactionsRepository;
-            this.transactionValidation = transactionValidation;
+            _transactionValidation = transactionValidation;
         }
 
         public Result Add(Transactions transaction)
         {
-            Result result = transactionValidation.ValidateValue(transaction.Value);
+            Result result = _transactionValidation.ValidateValue(transaction.Value);
             if (!result.IsSuccess)
             {
                 return result;
             }
-            result = transactionValidation.ValidateUserId(transaction.UserId);
+            result = _transactionValidation.ValidateUserId(transaction.UserId);
             if (!result.IsSuccess)
             {
                 return result;
             }
-            result = transactionValidation.ValidateCategoryId(transaction.CategoryId);
+            result = _transactionValidation.ValidateCategoryId(transaction.CategoryId);
             if (!result.IsSuccess)
             {
                 return result;
@@ -40,7 +40,7 @@ namespace PersonalFinance.API.Services
 
         public Result Remove(Guid transactionId)
         {
-            Result result = transactionValidation.ValidateTransactionId(transactionId);
+            Result result = _transactionValidation.ValidateTransactionId(transactionId);
             if (!result.IsSuccess)
             {
                 return result;
@@ -51,23 +51,23 @@ namespace PersonalFinance.API.Services
 
         public Result Update(Guid transactionId, Transactions updatedTransaction)
         {
-            Result result = transactionValidation.ValidateValue(updatedTransaction.Value);
+            Result result = _transactionValidation.ValidateValue(updatedTransaction.Value);
             if (!result.IsSuccess)
             {
                 return result;
             }
-            result = transactionValidation.ValidateUserId(updatedTransaction.UserId);
+            result = _transactionValidation.ValidateUserId(updatedTransaction.UserId);
             if (!result.IsSuccess)
             {
                 return result;
             }
-            result = transactionValidation.ValidateCategoryId(updatedTransaction.CategoryId);
+            result = _transactionValidation.ValidateCategoryId(updatedTransaction.CategoryId);
             if (!result.IsSuccess)
             {
                 return result;
             }
 
-            result = transactionValidation.ValidateTransactionId(transactionId);
+            result = _transactionValidation.ValidateTransactionId(transactionId);
             if (!result.IsSuccess)
             {
                 return result;
@@ -79,7 +79,7 @@ namespace PersonalFinance.API.Services
 
         public Result<Transactions?> GetById(Guid transactionId)
         {
-            Result result = transactionValidation.ValidateTransactionId(transactionId);
+            Result result = _transactionValidation.ValidateTransactionId(transactionId);
             if (!result.IsSuccess)
             {
                 return Result<Transactions?>.Failure(result.Error);
@@ -89,7 +89,7 @@ namespace PersonalFinance.API.Services
 
         public Result<List<Transactions>> GetAllByUser(Guid userId)
         {
-            Result result = transactionValidation.ValidateUserId(userId);
+            Result result = _transactionValidation.ValidateUserId(userId);
             if (!result.IsSuccess)
             {
                 return Result<List<Transactions>>.Failure(result.Error);
@@ -99,12 +99,12 @@ namespace PersonalFinance.API.Services
 
         public Result<List<Transactions>> GetPerPeriod(Guid userId, DateTime begin, DateTime end)
         {
-            Result result = transactionValidation.ValidateDate(begin, end);
+            Result result = _transactionValidation.ValidateDate(begin, end);
             if(!result.IsSuccess)
             {
                 return Result<List<Transactions>>.Failure(result.Error);
             }
-            result = transactionValidation.ValidateUserId(userId);
+            result = _transactionValidation.ValidateUserId(userId);
             if (!result.IsSuccess)
             {
                 return Result<List<Transactions>>.Failure(result.Error);
