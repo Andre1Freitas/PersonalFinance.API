@@ -5,7 +5,7 @@ using PersonalFinance.API.Common;
 
 namespace PersonalFinance.API.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
         private readonly UserValidation _userValidation;

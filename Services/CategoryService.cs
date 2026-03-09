@@ -6,7 +6,7 @@ using PersonalFinance.API.Repositories;
 
 namespace PersonalFinance.API.Services
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly CategoryValidation _categoryValidation;
