@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PersonalFinance.API.Repositories
 {
-    public class TransactionEFRepository : ITransactionsRepository
+    public class TransactionEFRepository : ITransactionRepository
     {
         private readonly AppDbContext _context;
 

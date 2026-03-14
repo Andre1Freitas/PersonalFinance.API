@@ -5,11 +5,11 @@ using PersonalFinance.API.Interfaces;
 
 namespace PersonalFinance.API.Repositories
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryEFRepository : ICategoryRepository
     {
         private readonly AppDbContext _context;
 
-        public CategoryRepository(AppDbContext context)
+        public CategoryEFRepository(AppDbContext context)
         {
             _context = context;
         }

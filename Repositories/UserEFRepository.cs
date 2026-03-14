@@ -5,10 +5,10 @@ using PersonalFinance.API.Interfaces;
 
 namespace PersonalFinance.API.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserEFRepository : IUserRepository
     {
         private readonly AppDbContext _context;
-        public UserRepository(AppDbContext context)
+        public UserEFRepository(AppDbContext context)
         {
             _context = context;
         }

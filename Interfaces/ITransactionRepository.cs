@@ -2,7 +2,7 @@
 
 namespace PersonalFinance.API.Interfaces
 {
-    public interface ITransactionsRepository
+    public interface ITransactionRepository
     {
         void Add(Transactions transactions);
         void Remove(Guid transactionId);

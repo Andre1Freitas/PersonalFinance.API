@@ -7,10 +7,10 @@ namespace PersonalFinance.API.Services
 {
     public class TransactionsService : ITransactionService
     {
-        private readonly ITransactionsRepository _transactionsRepository;
+        private readonly ITransactionRepository _transactionsRepository;
         private readonly TransactionValidation _transactionValidation;
 
-        public TransactionsService(ITransactionsRepository transactionsRepository, TransactionValidation transactionValidation)
+        public TransactionsService(ITransactionRepository transactionsRepository, TransactionValidation transactionValidation)
         {
             _transactionsRepository = transactionsRepository;
             _transactionValidation = transactionValidation;
