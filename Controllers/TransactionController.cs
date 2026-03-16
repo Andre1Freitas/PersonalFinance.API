@@ -20,7 +20,7 @@ namespace PersonalFinance.API.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] CreateTransactionDto dto)
         {
-            var transaction = new Transactions(dto.UserId, dto.Value, dto.TransactionType, dto.CategoryId, dto.DescriptionTransaction, dto.Date);
+            var transaction = new Transaction(dto.UserId, dto.Value, dto.TransactionType, dto.CategoryId, dto.DescriptionTransaction, dto.Date);
             Result result = _transactionService.Add(transaction);
 
             if (!result.IsSuccess)
@@ -46,7 +46,7 @@ namespace PersonalFinance.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(Guid id, [FromBody] UpdateTransactionDto dto)
         {
-            var transaction = new Transactions(dto.UserId, dto.Value, dto.TransactionType, dto.CategoryId, dto.DescriptionTransaction, dto.Date);
+            var transaction = new Transaction(dto.UserId, dto.Value, dto.TransactionType, dto.CategoryId, dto.DescriptionTransaction, dto.Date);
             Result result = _transactionService.Update(id, transaction);
 
             if (!result.IsSuccess)
@@ -59,7 +59,7 @@ namespace PersonalFinance.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
-            Result<Transactions?> result = _transactionService.GetById(id);
+            Result<Transaction?> result = _transactionService.GetById(id);
 
             if (!result.IsSuccess)
             {
@@ -71,7 +71,7 @@ namespace PersonalFinance.API.Controllers
         [HttpGet("user/{id}")]
         public IActionResult GetAllByUser(Guid id)
         {
-            Result<List<Transactions>> result = _transactionService.GetAllByUser(id);
+            Result<List<Transaction>> result = _transactionService.GetAllByUser(id);
 
             if (!result.IsSuccess)
             {
@@ -83,7 +83,7 @@ namespace PersonalFinance.API.Controllers
         [HttpGet("period")]
         public IActionResult GetPerPeriod(Guid id, DateTime begin, DateTime end)
         {
-            Result<List<Transactions>> result = _transactionService.GetPerPeriod(id, begin, end);
+            Result<List<Transaction>> result = _transactionService.GetPerPeriod(id, begin, end);
 
             if (!result.IsSuccess)
             {

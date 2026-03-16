@@ -2,7 +2,7 @@
 
 namespace PersonalFinance.API.Entities
 {
-    public class Transactions
+    public class Transaction
     {
         public Guid UserId { get; set; }
         public Guid TransactionId { get; set; }
@@ -12,7 +12,7 @@ namespace PersonalFinance.API.Entities
         public string DescriptionTransaction { get; set; }
         public DateTime Date { get; set; } = DateTime.UtcNow;
 
-        public Transactions(Guid userId, decimal value, TransactionType transactionType, Guid categoryId, string descriptionTransaction = "", DateTime date = default)
+        public Transaction(Guid userId, decimal value, TransactionType transactionType, Guid categoryId, string descriptionTransaction = "", DateTime date = default)
         {
             UserId = userId;
             TransactionId = Guid.NewGuid();

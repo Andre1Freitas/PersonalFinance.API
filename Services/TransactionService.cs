@@ -16,7 +16,7 @@ namespace PersonalFinance.API.Services
             _transactionValidation = transactionValidation;
         }
 
-        public Result Add(Transactions transaction)
+        public Result Add(Transaction transaction)
         {
             Result result = _transactionValidation.ValidateValue(transaction.Value);
             if (!result.IsSuccess)
@@ -49,7 +49,7 @@ namespace PersonalFinance.API.Services
             return Result.Success();
         }
 
-        public Result Update(Guid transactionId, Transactions updatedTransaction)
+        public Result Update(Guid transactionId, Transaction updatedTransaction)
         {
             Result result = _transactionValidation.ValidateValue(updatedTransaction.Value);
             if (!result.IsSuccess)
@@ -77,39 +77,39 @@ namespace PersonalFinance.API.Services
             return Result.Success();
         }
 
-        public Result<Transactions?> GetById(Guid transactionId)
+        public Result<Transaction?> GetById(Guid transactionId)
         {
             Result result = _transactionValidation.ValidateTransactionId(transactionId);
             if (!result.IsSuccess)
             {
-                return Result<Transactions?>.Failure(result.Error);
+                return Result<Transaction?>.Failure(result.Error);
             }
-            return Result<Transactions?>.Success(_transactionsRepository.GetById(transactionId));
+            return Result<Transaction?>.Success(_transactionsRepository.GetById(transactionId));
         }
 
-        public Result<List<Transactions>> GetAllByUser(Guid userId)
+        public Result<List<Transaction>> GetAllByUser(Guid userId)
         {
             Result result = _transactionValidation.ValidateUserId(userId);
             if (!result.IsSuccess)
             {
-                return Result<List<Transactions>>.Failure(result.Error);
+                return Result<List<Transaction>>.Failure(result.Error);
             }
-            return Result<List<Transactions>>.Success(_transactionsRepository.GetAllByUser(userId));
+            return Result<List<Transaction>>.Success(_transactionsRepository.GetAllByUser(userId));
         }
 
-        public Result<List<Transactions>> GetPerPeriod(Guid userId, DateTime begin, DateTime end)
+        public Result<List<Transaction>> GetPerPeriod(Guid userId, DateTime begin, DateTime end)
         {
             Result result = _transactionValidation.ValidateDate(begin, end);
             if(!result.IsSuccess)
             {
-                return Result<List<Transactions>>.Failure(result.Error);
+                return Result<List<Transaction>>.Failure(result.Error);
             }
             result = _transactionValidation.ValidateUserId(userId);
             if (!result.IsSuccess)
             {
-                return Result<List<Transactions>>.Failure(result.Error);
+                return Result<List<Transaction>>.Failure(result.Error);
             }
-            return Result<List<Transactions>>.Success(_transactionsRepository.GetPerPeriod(userId, begin, end));
+            return Result<List<Transaction>>.Success(_transactionsRepository.GetPerPeriod(userId, begin, end));
         }
     }
 }

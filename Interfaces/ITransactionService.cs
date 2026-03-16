@@ -5,11 +5,11 @@ namespace PersonalFinance.API.Interfaces
 {
     public interface ITransactionService
     {
-        public Result Add(Transactions transaction);
+        public Result Add(Transaction transaction);
         public Result Remove(Guid transactionId);
-        public Result Update(Guid transactionId, Transactions updatedTransaction);
-        public Result<Transactions?> GetById(Guid transactionId);
-        public Result<List<Transactions>> GetAllByUser(Guid userId);
-        public Result<List<Transactions>> GetPerPeriod(Guid userId, DateTime begin, DateTime end);
+        public Result Update(Guid transactionId, Transaction updatedTransaction);
+        public Result<Transaction?> GetById(Guid transactionId);
+        public Result<List<Transaction>> GetAllByUser(Guid userId);
+        public Result<List<Transaction>> GetPerPeriod(Guid userId, DateTime begin, DateTime end);
     }
 }

@@ -4,11 +4,11 @@ namespace PersonalFinance.API.Interfaces
 {
     public interface ITransactionRepository
     {
-        void Add(Transactions transactions);
+        void Add(Transaction transactions);
         void Remove(Guid transactionId);
-        void Update(Guid transactionId, Transactions updatedTransaction);
-        Transactions? GetById(Guid transactionId);
-        List<Transactions> GetAllByUser(Guid userId);
-        List<Transactions> GetPerPeriod(Guid userId, DateTime begin, DateTime end);
+        void Update(Guid transactionId, Transaction updatedTransaction);
+        Transaction? GetById(Guid transactionId);
+        List<Transaction> GetAllByUser(Guid userId);
+        List<Transaction> GetPerPeriod(Guid userId, DateTime begin, DateTime end);
     }
 }
