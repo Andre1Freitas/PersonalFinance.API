@@ -5,12 +5,12 @@ using PersonalFinance.API.Common;
 
 namespace PersonalFinance.API.Services
 {
-    public class TransactionsService : ITransactionService
+    public class TransactionService : ITransactionService
     {
         private readonly ITransactionRepository _transactionsRepository;
         private readonly TransactionValidation _transactionValidation;
 
-        public TransactionsService(ITransactionRepository transactionsRepository, TransactionValidation transactionValidation)
+        public TransactionService(ITransactionRepository transactionsRepository, TransactionValidation transactionValidation)
         {
             _transactionsRepository = transactionsRepository;
             _transactionValidation = transactionValidation;
