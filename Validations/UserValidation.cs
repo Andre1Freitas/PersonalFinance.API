@@ -34,5 +34,17 @@ namespace PersonalFinance.API.Validations
         {
             return ValidationHelper.ValidateGuid(id);
         }
+        public Result ValidatePassword(string passwordHash)
+        {
+            if (string.IsNullOrEmpty(passwordHash))
+            {
+                return Result.Failure("Password is empty");
+            }
+            if (passwordHash.Length < 8)
+            {
+                return Result.Failure("Password is too short");
+            }
+            return Result.Success();
+        }
     }
 }
